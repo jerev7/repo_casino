@@ -9,25 +9,26 @@ from math import ceil
 argent_joueur = 300
 print("Vous disposez de", argent_joueur, " euros")
 
-somme_mise = input("choisissez la somme que vous souhaitez miser : \n")
-somme_mise = int(somme_mise)
+while argent_joueur > 0:
+	somme_mise = input("choisissez la somme que vous souhaitez miser : \n")
+	somme_mise = int(somme_mise)
 	
-chiffre_choisi = input("choisissez le chiffre sur lequel vous souhaitez miser : \n")
-chiffre_choisi = int(chiffre_choisi)
-random_nbr = randrange(50)
-print("La roulette est tombée sur : ", random_nbr)
+	chiffre_choisi = input("choisissez le chiffre sur lequel vous souhaitez miser : \n")
+	chiffre_choisi = int(chiffre_choisi)
+	random_nbr = randrange(50)
+	print("La roulette est tombée sur : ", random_nbr)
 
-if chiffre_choisi % 2 == 0 and random_nbr % 2 == 0:
-	gain = 50 * somme_mise / 100
-elif chiffre_choisi % 2 != 0 and random_nbr % 2 != 0:
-	gain = 50 * somme_mise / 100
-elif chiffre_choisi == random_nbr:
-	gain = 3 * somme_mise
-else: 
-	gain = 0
-print("votre gain est de : ", gain)
-argent_joueur = 300 - somme_mise + ceil(gain)
-print("vous disposez désormais de : ", argent_joueur, " euros !")
+	if chiffre_choisi % 2 == 0 and random_nbr % 2 == 0:
+		gain = 50 * somme_mise / 100
+	elif chiffre_choisi % 2 != 0 and random_nbr % 2 != 0:
+		gain = 50 * somme_mise / 100
+	elif chiffre_choisi == random_nbr:
+		gain = 3 * somme_mise
+	else: 
+		gain = 0
+	print("votre gain est de : ", gain)
+	argent_joueur = 300 - somme_mise + ceil(gain)
+	print("vous disposez désormais de : ", argent_joueur, " euros !")
 
 
 
