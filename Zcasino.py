@@ -12,9 +12,19 @@ print("Vous disposez de", argent_joueur, " euros")
 while argent_joueur > 0:
 	somme_mise = input("choisissez la somme que vous souhaitez miser : \n")
 	somme_mise = int(somme_mise)
-	
-	chiffre_choisi = input("choisissez le chiffre sur lequel vous souhaitez miser : \n")
+	while somme_mise > argent_joueur:
+		print("tu n'as pas assez d'argent")
+		somme_mise = input("choisissez la somme que vous souhaitez miser : \n")
+		somme_mise = int(somme_mise)
+
+	chiffre_choisi = input("choisissez le chiffre sur lequel vous souhaitez miser (entre 0 et 49 !) : \n")
 	chiffre_choisi = int(chiffre_choisi)
+	
+	while chiffre_choisi > 49:
+		print("choisis un chiffre entre 0 et 49 !")
+		chiffre_choisi =input("choisissez le chiffre sur lequel vous souhaitez miser :\n")
+		chiffre_choisi = int(chiffre_choisi)
+	
 	random_nbr = randrange(50)
 	print("La roulette est tombée sur : ", random_nbr)
 
@@ -27,8 +37,10 @@ while argent_joueur > 0:
 	else: 
 		gain = 0
 	print("votre gain est de : ", gain)
-	argent_joueur = 300 - somme_mise + ceil(gain)
+	argent_joueur = argent_joueur - somme_mise + ceil(gain)
 	print("vous disposez désormais de : ", argent_joueur, " euros !")
+
+print("c'est fini ! Vous avez plus un rond ! Du vent !")
 
 
 
